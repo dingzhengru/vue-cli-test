@@ -1,2 +1,2 @@
-# vue-cli-test
+# vue-cli test
 My Vue-CLI test
