@@ -11,6 +11,8 @@
 // import HelloWorld from '@/components/HelloWorld.vue'
 import $ from 'jquery'
 console.log($('body').text())
+
+
 export default {
   name: 'home',
   components: {
