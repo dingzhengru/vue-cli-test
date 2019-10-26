@@ -16,8 +16,10 @@ import _ from 'lodash'
 ```
 ### 2. index.html (must use CDN)
 #### 缺點是一定要用CDN才行
-```<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">```
-```<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>```
+```
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+```
 ### .vue (還是要在該vue下引入才能使用)
 ```
 <script>
