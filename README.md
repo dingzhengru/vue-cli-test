@@ -23,7 +23,7 @@ import _ from 'lodash'
 ### .vue (還是要在該vue下引入才能使用)
 ```
 <script>
-import _ from 'lodash'
+import $ from 'jquery'
 </script>
 ```
 ## change props value warn (ex: cuurentPage)
