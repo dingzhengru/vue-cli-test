@@ -33,7 +33,6 @@ import Pagination from './components/Pagination.vue'
 // import $ from 'jquery'
 // import _ from 'lodash'
 
-
 export default {
     name: 'app',
     components: {

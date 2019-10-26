@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 // load other js library
 // in .vue (import $ from 'jquery')
-window.$ = window.jQuery = require('jquery')
+// window.$ = window.jQuery = require('jquery')
 window._ = require('lodash')
 window._ = require('lodash/core')
 
