@@ -1,5 +1,11 @@
 <template>
     <div id="app">
+        <h1>SearchByAll</h1>
+        <SearchByAll
+        :searchText="searchText"
+        :data="pageData"
+        @search="searchByAll"></SearchByAll>
+
         <h1>Pagination</h1>
         <Pagination 
         class="page"
@@ -22,6 +28,7 @@
 </template>
 
 <script>
+import SearchByAll from './components/SearchByAll.vue'
 import Pagination from './components/Pagination.vue'
 // import $ from 'jquery'
 // import _ from 'lodash'
@@ -29,6 +36,10 @@ import Pagination from './components/Pagination.vue'
 
 export default {
     name: 'app',
+    components: {
+        SearchByAll,
+        Pagination,
+    },
     data: function() {
         return {
             currentPage: 1,
@@ -46,11 +57,9 @@ export default {
                     id: '3',
                     name: 'name3'
                 },
-            ]
+            ],
+            searchText: '',
         }
-    },
-    components: {
-        Pagination
     },
     computed: {
         pageFilter: function() {
@@ -62,6 +71,9 @@ export default {
     methods: {
         changePage: function(currentPage) {
             this.currentPage = currentPage;
+        },
+        searchByAll: function(data) {
+            this.pageData = data;
         }
     }
 }
