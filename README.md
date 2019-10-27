@@ -49,8 +49,7 @@ data: function () {
 searchText: input text  
 searchBy: default object key(預設搜尋的Key)  
 #### custom event
-```@search```
-search: get search data(Array)  
+```@search```get search data(Array)  
 #### example
 ```
 <SearchByKey
@@ -58,6 +57,7 @@ search: get search data(Array)
     :data="pageData"
     :searchBy="searchBy"
     @search="searchByKey"></SearchByKey>
+
 data: function() {
     return {
         searchText: '',
@@ -84,8 +84,7 @@ currentPage: current page
 pageSize: 一頁顯示幾個資料  
 
 #### custom event
-```@change-page```
-change-page: get current page
+```@change-page```get current page  
 #### example
 ```
 <Pagination 
