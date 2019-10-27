@@ -1,10 +1,11 @@
 <template>
     <div id="app">
-        <h1>SearchByAll</h1>
-        <SearchByAll
+        <h1>SearchBy</h1>
+        <SearchByKey
         :searchText="searchText"
         :data="pageData"
-        @search="searchByAll"></SearchByAll>
+        :searchBy="searchBy"
+        @search="searchByKey"></SearchByKey>
 
         <h1>Pagination</h1>
         <Pagination 
@@ -28,7 +29,7 @@
 </template>
 
 <script>
-import SearchByAll from './components/SearchByAll.vue'
+import SearchByKey from './components/SearchByKey.vue'
 import Pagination from './components/Pagination.vue'
 // import $ from 'jquery'
 // import _ from 'lodash'
@@ -36,7 +37,7 @@ import Pagination from './components/Pagination.vue'
 export default {
     name: 'app',
     components: {
-        SearchByAll,
+        SearchByKey,
         Pagination,
     },
     data: function() {
@@ -46,18 +47,19 @@ export default {
             pageData: [
                 {
                     id: '1',
-                    name: 'name1'
+                    name: 'Ding'
                 },
                 {
                     id: '2',
-                    name: 'name2'
+                    name: 'John'
                 },
                 {
                     id: '3',
-                    name: 'name3'
+                    name: 'Nigella'
                 },
             ],
             searchText: '',
+            searchBy: 'name',
         }
     },
     computed: {
@@ -71,7 +73,7 @@ export default {
         changePage: function(currentPage) {
             this.currentPage = currentPage;
         },
-        searchByAll: function(data) {
+        searchByKey: function(data) {
             this.pageData = data;
         }
     }

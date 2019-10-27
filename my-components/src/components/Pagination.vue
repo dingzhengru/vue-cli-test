@@ -21,28 +21,28 @@
                 </li>
 
                 <!-- <li class="page-item"
-                    v-bind:class="{ 'disabled': cPage <= 1 }"
-                    @click="cPage <= 1 ? 0 : cPage--">
+                    v-bind:class="{ 'disabled': clonePage <= 1 }"
+                    @click="clonePage <= 1 ? 0 : clonePage--">
                     <a class="page-link">Previous</a>
                 </li>
                 <li v-for="(p, index) in totalPage(data)"
-                    @click="cPage = index + 1"
+                    @click="clonePage = index + 1"
                     class="page-item"
                     v-bind:key="p">
-                    <a v-bind:class="{'disabled': cPage == index + 1}" class="page-link btn" >{{ index + 1 }}</a>
+                    <a v-bind:class="{'disabled': clonePage == index + 1}" class="page-link btn" >{{ index + 1 }}</a>
                 </li>
                 <li class="page-item" 
-                    v-bind:class="{ 'disabled': cPage >= totalPage(data) }"
-                    @click="cPage >= totalPage(data) ? 0 : cPage++">
+                    v-bind:class="{ 'disabled': clonePage >= totalPage(data) }"
+                    @click="clonePage >= totalPage(data) ? 0 : clonePage++">
                     <a class="page-link">Next</a>
                 </li> -->
             </ul>
         </nav>
         <p>currentPage: {{ currentPage }}</p>
         <p>PageSize: {{ pageSize }}</p>
-        <p>data: {{ data }}</p>
         <p>totalPage: {{ totalPage(data) }}</p>
-        <p>cPage: {{ cPage }}</p>
+        <p>data: {{ data }}</p>
+        <!-- <p>clonePage: {{ clonePage }}</p> -->
     </div>
     
 </template>
@@ -59,7 +59,7 @@ export default {
     },
     data: function () {
         return {
-            cPage: _.cloneDeep(this.currentPage)
+            clonePage: _.cloneDeep(this.currentPage)
         }
     },
     methods: {

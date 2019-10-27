@@ -36,3 +36,26 @@ data: function () {
     }
 }
 ```
+## My Components
+### SearchByKey
+#### props
+```
+{
+    searchText: String,
+    searchBy: String,
+    data: Array
+}
+```
+#### searchText: input text
+#### searchBy: default object key(預設搜尋的Key)
+### Pagination
+#### props
+```
+{
+    currentPage: Number,
+    pageSize: Number,
+    data: Array
+}
+```
+#### currentPage: current page
+#### pageSize: 一頁顯示幾個資料
