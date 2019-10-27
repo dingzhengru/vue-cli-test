@@ -97,8 +97,12 @@ select{
 }
 
 .dropdown-row .dropdown-item {
-    background-color: gray;
-    border-bottom: 1px solid black;
+    background-color: white;
+    border: 1px solid #E6E6E6;
+}
+
+.dropdown-row .dropdown-item:hover {
+    background-color: #E6E6E6;
 }
 
 </style>
