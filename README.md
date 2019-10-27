@@ -32,7 +32,7 @@ import $ from 'jquery'
 props: {currentPage: Number},
 data: function () {
     return {
-        cPage: _.cloneDeep(this.currentPage)
+        clonePage: _.cloneDeep(this.currentPage)
     }
 }
 ```
@@ -48,6 +48,29 @@ data: function () {
 ```
 searchText: input text  
 searchBy: default object key(預設搜尋的Key)  
+#### custom event
+```@search```
+search: get search data(Array)  
+#### example
+```
+<SearchByKey
+    :searchText="searchText"
+    :data="pageData"
+    :searchBy="searchBy"
+    @search="searchByKey"></SearchByKey>
+data: function() {
+    return {
+        searchText: '',
+        searchBy: 'name',
+    }
+},
+methods: {
+    searchByKey: function(data) {
+        this.data = data;
+    }
+}
+```
+
 ### Pagination
 #### props
 ```
@@ -59,3 +82,28 @@ searchBy: default object key(預設搜尋的Key)
 ```
 currentPage: current page  
 pageSize: 一頁顯示幾個資料  
+
+#### custom event
+```@change-page```
+change-page: get current page
+#### example
+```
+<Pagination 
+    :currentPage="currentPage"
+    :pageSize="pageSize"
+    :data="pageData"
+    @change-page="changePage"></Pagination>
+
+data: function() {
+    return {
+        currentPage: 1,
+        pageSize: 2,
+        pageData: [],
+    }
+},
+methods: {
+    changePage: function(currentPage) {
+        this.currentPage = currentPage;
+    }
+}
+```
