@@ -46,8 +46,8 @@ data: function () {
     data: Array
 }
 ```
-#### searchText: input text
-#### searchBy: default object key(預設搜尋的Key)
+searchText: input text  
+searchBy: default object key(預設搜尋的Key)  
 ### Pagination
 #### props
 ```
@@ -57,5 +57,5 @@ data: function () {
     data: Array
 }
 ```
-#### currentPage: current page
-#### pageSize: 一頁顯示幾個資料
+currentPage: current page  
+pageSize: 一頁顯示幾個資料  
