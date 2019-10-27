@@ -1,7 +1,7 @@
 # vue-cli test
 
 ## import js&css library (ex: lodash , jquery, bootstrap)
-### 有兩種方式引入，一種是傳統在index.html，另一種是在main.js上引入
+### 有兩種方式引入，第一種是在main.js上引入，另一種是傳統在index.html
 ### 1. main.js (import bootstrap.css & lodash)
 ```
 import 'bootstrap/dist/css/bootstrap.min.css'
