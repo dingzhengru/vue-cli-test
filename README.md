@@ -62,6 +62,7 @@ data: function() {
     return {
         searchText: '',
         searchBy: 'name',
+        data: [],
     }
 },
 methods: {
