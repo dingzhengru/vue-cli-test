@@ -25,12 +25,18 @@
                 </td>
             </tr>
         </table>
+        <h1>DropdownSearch</h1>
+        <DropdownSearch
+        :searchText="searchText"
+        :data="pageData"
+        @search="dropdownSearch"></DropdownSearch>
     </div>
 </template>
 
 <script>
 import SearchByKey from './components/SearchByKey.vue'
 import Pagination from './components/Pagination.vue'
+import DropdownSearch from './components/DropdownSearch.vue'
 // import $ from 'jquery'
 // import _ from 'lodash'
 
@@ -39,6 +45,7 @@ export default {
     components: {
         SearchByKey,
         Pagination,
+        DropdownSearch,
     },
     data: function() {
         return {
@@ -74,6 +81,9 @@ export default {
             this.currentPage = currentPage;
         },
         searchByKey: function(data) {
+            this.pageData = data;
+        },
+        dropdownSearch: function(data) {
             this.pageData = data;
         }
     }
