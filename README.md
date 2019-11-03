@@ -2,16 +2,16 @@
 
 ## import js&css library (ex: lodash , jquery, bootstrap)
 ### 有兩種方式引入，第一種是在main.js上引入，另一種是傳統在index.html
-### 1. main.js (import bootstrap.css & lodash)
+### 1. main.js (import bootstrap & lodash)
 ```
+import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
-window._ = require('lodash')
-window._ = require('lodash/core')
 ```
 ### .vue
 ```
 <script>
 import _ from 'lodash'
+import $ form 'jquery'
 </script>
 ```
 ### 2. index.html (must use CDN)
@@ -26,6 +26,24 @@ import _ from 'lodash'
 import $ from 'jquery'
 </script>
 ```
+## Import Firebase
+### Create a new js(firebase.js)
+```
+const firebase = require('firebase/app');
+require('firebase/firestore');
+require('firebase/auth');
+
+const firebaseConfig = {};
+const firestore = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+export { firebase, db } ;
+```
+### in your js import db(ex: store/index.js or store/yourModule.js)
+```
+import { db } from '../firebase.js'
+```
+
 ## change props value warn (ex: cuurentPage)
 如何解決直接改變props值的警告，複製要改變的props到data上，去改變data的那個值即可
 ```
