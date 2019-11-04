@@ -2,6 +2,7 @@
 <div>   
     <h1>Product</h1>
     <br>
+    {{ this.$store.getters['product/getFilterData'] }}
     <div class="form-group">
         <input type="text" v-model="search.text" class="form-control" id="searchInput" placeholder="search...">
     </div>
@@ -56,28 +57,13 @@
     </table>
 
     <!-- Page -->
-
-    <nav id="product-pagination" class="pagination-nav">
-        <!-- currentPage <= 1 ? 0 : currentPage-- 前者為true會執行的 後者為false會執行的 -->
-        <ul class="pagination">
-            <li class="page-item" 
-                v-bind:class="{ 'disabled': pagination.currentPage <= 1 }"
-                @click="pagination.currentPage <= 1 ? 0 : pagination.currentPage--">
-                <a class="page-link">Previous</a>
-            </li>
-            <li v-for="(p, index) in totalPage()"
-                @click="pagination.currentPage = index + 1" class="page-item"
-                :key="index">
-                <a v-bind:class="{'disabled': pagination.currentPage == index + 1}" class="page-link btn" >{{ index + 1 }}</a>
-                <!-- <a class="page-link">{{ index + 1 }}</a> -->
-            </li>
-            <li class="page-item" 
-                v-bind:class="{ 'disabled': pagination.currentPage >= totalPage() }"
-                @click="pagination.currentPage >= totalPage() ? 0 : pagination.currentPage++">
-                <a class="page-link">Next</a>
-            </li>
-        </ul>
-    </nav>
+    
+    <Pagination 
+        class="page"
+        :currentPage="pagination.currentPage"
+        :pageSize="pagination.pageSize"
+        :data="searchFilter"
+        @change-page="changePage"></Pagination>
 </div>
 </template>
 
@@ -85,6 +71,7 @@
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
 import _ from 'lodash'
+import Pagination from '../components/Pagination.vue'
 
 export default {
     name: 'product',
@@ -103,7 +90,7 @@ export default {
         }
     },
     components: {
-
+        Pagination
     },
     beforeCreate: function(){
         console.log('beforeCreate: Product');
@@ -114,6 +101,9 @@ export default {
     computed: {
         products: function() {
             return this.$store.state.product.data;
+        },
+        searchFilter: function() {
+            return this.$store.getters['product/getSearchData'];
         },
         productsFilter: function () {
             if(_.isEmpty(this.getFilterData())){
@@ -161,9 +151,8 @@ export default {
             .then((data) => {  })
             .catch((error) => console.log('updateProduct error:', error))
         },
-        totalPage: function() {
-            // ceil 無條件進位
-            return Math.ceil(this.searchProductsByAll(this.searchText).length / this.pagination.pageSize);
+        changePage: function(page) {
+            this.pagination.currentPage = page;
         }
     },
     watch: {

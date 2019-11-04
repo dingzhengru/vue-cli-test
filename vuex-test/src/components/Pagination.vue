@@ -19,30 +19,13 @@
                     @click="nextPage()">
                     <a class="page-link">Next</a>
                 </li>
-
-                <!-- <li class="page-item"
-                    v-bind:class="{ 'disabled': clonePage <= 1 }"
-                    @click="clonePage <= 1 ? 0 : clonePage--">
-                    <a class="page-link">Previous</a>
-                </li>
-                <li v-for="(p, index) in totalPage(data)"
-                    @click="clonePage = index + 1"
-                    class="page-item"
-                    v-bind:key="p">
-                    <a v-bind:class="{'disabled': clonePage == index + 1}" class="page-link btn" >{{ index + 1 }}</a>
-                </li>
-                <li class="page-item" 
-                    v-bind:class="{ 'disabled': clonePage >= totalPage(data) }"
-                    @click="clonePage >= totalPage(data) ? 0 : clonePage++">
-                    <a class="page-link">Next</a>
-                </li> -->
             </ul>
         </nav>
-        <p>currentPage: {{ currentPage }}</p>
+        <!-- <p>currentPage: {{ currentPage }}</p>
         <p>PageSize: {{ pageSize }}</p>
         <p>totalPage: {{ totalPage(data) }}</p>
         <p>data: {{ data }}</p>
-        <!-- <p>clonePage: {{ clonePage }}</p> -->
+        <p>clonePage: {{ clonePage }}</p> -->
     </div>
     
 </template>
