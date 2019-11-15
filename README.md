@@ -211,36 +211,28 @@ import { db } from '../firebase.js'
 ```
 
 
-## import js&css library (ex: lodash , jquery, bootstrap)
-### 有兩種方式引入，第一種是在main.js上引入，另一種是利用cdn在index.html引入
-### 1. main.js (import bootstrap & lodash)
+## import library
+**在main引入(但js沒辦法全域引入，需要用的還是得在該js引入)**
+**main.js (import bootstrap & lodash)**  
 ```
+// import bootstrap
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+```
 
-// 引入全部
-var _ = require('lodash');
-// 只引入core部分
-var _ = require('lodash/core');
+**.vue or .js**
 ```
-### .vue
+// 利用import
+import $ from 'jquery'
+
+// 利用require
+const $ = require('jquery')
 ```
-<script>
-import _ from 'lodash'
-import $ form 'jquery'
-</script>
-```
-### 2. index.html (use CDN)
-**一定要用CDN才行**  
+### 另一種是利用cdn在index.html引入
+**一定要用CDN才行，且還是得js檔各自引入**  
 ```
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-```
-### .vue (還是要在該vue下引入才能使用)
-```
-<script>
-import $ from 'jquery'
-</script>
 ```
 
 

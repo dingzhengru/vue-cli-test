@@ -16,10 +16,17 @@
 // import HelloWorld from './components/HelloWorld.vue'
 import Test from './components/Test.vue'
 
+import $ from 'jquery'
+
+
+
+
+console.log($)
+
 export default {
     name: 'app',
     data: function() {
-    return {
+        return {
             user: {
                 username: 'ding',
                 age: 25
