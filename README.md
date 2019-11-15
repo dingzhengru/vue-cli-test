@@ -6,6 +6,7 @@
 *  <a href="#vuecreate">vue create</a>
 *  <a href="#各檔案的基本樣子">各檔案的基本樣子</a>
 *  <a href="#firebase-in-vue-cli">Firebase in vue-cli</a>
+*  <a href="#import-library">Import Library</a>
 *  <a href="#my-components">My Components</a>
 *  <a href="#change-props-value-warn">change props value warn</a>
 ## Base
@@ -210,12 +211,10 @@ export { firebase, db };
 import { db } from '../firebase.js'
 ```
 
-
-## import library
+## Import Library
 **在main引入(但js沒辦法全域引入，需要用的還是得在該js引入)**
 **main.js (import bootstrap & lodash)**  
 ```
-// import bootstrap
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 ```
@@ -228,8 +227,8 @@ import $ from 'jquery'
 // 利用require
 const $ = require('jquery')
 ```
-### 另一種是利用cdn在index.html引入
-**一定要用CDN才行，且還是得js檔各自引入**  
+
+**另一種是利用cdn在index.html引入，但還是得js檔各自引入**  
 ```
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
