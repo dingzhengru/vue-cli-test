@@ -4,8 +4,10 @@
 *  <a href="#installation">Installation</a>
 *  <a href="#vueserve">vue serve</a>
 *  <a href="#vuecreate">vue create</a>
+*  <a href="#各檔案的基本樣子">各檔案的基本樣子</a>
 *  <a href="#firebase-in-vue-cli">Firebase in vue-cli</a>
-
+*  <a href="#my-components">My Components</a>
+*  <a href="#change-props-value-warn">change props value warn</a>
 ## Base
 
 (vue-router, vuex)  
@@ -92,9 +94,9 @@ cd project-name
 npm run serve
 ```
 
-## 各個檔案的基本樣子
+## 各檔案的基本樣子
 
-**/src/main.js**
+**/src/main.js**  
 ```
 import Vue from 'vue'
 import App from './App.vue'
@@ -210,18 +212,16 @@ import { db } from '../firebase.js'
 
 
 ## import js&css library (ex: lodash , jquery, bootstrap)
-### 有兩種方式引入，第一種是在main.js上引入，另一種是傳統在index.html
+### 有兩種方式引入，第一種是在main.js上引入，另一種是利用cdn在index.html引入
 ### 1. main.js (import bootstrap & lodash)
 ```
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-// Load the full build.
+// 引入全部
 var _ = require('lodash');
-// Load the core build.
+// 只引入core部分
 var _ = require('lodash/core');
-// Load the FP build for immutable auto-curried iteratee-first data-last methods.
-var fp = require('lodash/fp');
 ```
 ### .vue
 ```
@@ -230,8 +230,8 @@ import _ from 'lodash'
 import $ form 'jquery'
 </script>
 ```
-### 2. index.html (must use CDN)
-#### 缺點是一定要用CDN才行
+### 2. index.html (use CDN)
+**一定要用CDN才行**  
 ```
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -242,37 +242,11 @@ import $ form 'jquery'
 import $ from 'jquery'
 </script>
 ```
-## Import Firebase
-### Create a new js(firebase.js)
-```
-const firebase = require('firebase/app');
-require('firebase/firestore');
-require('firebase/auth');
 
-const firebaseConfig = {};
-const firestore = firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
 
-export { firebase, db } ;
-```
-### in your js import db(ex: store/index.js or store/yourModule.js)
-```
-import { db } from '../firebase.js'
-```
-
-## change props value warn (ex: cuurentPage)
-如何解決直接改變props值的警告，複製要改變的props到data上，去改變data的那個值即可
-```
-props: {currentPage: Number},
-data: function () {
-    return {
-        clonePage: _.cloneDeep(this.currentPage)
-    }
-}
-```
 ## My Components
 ### SearchByKey
-#### props
+**props**  
 ```
 {
     searchText: String,
@@ -282,9 +256,9 @@ data: function () {
 ```
 searchText: input text  
 searchBy: default object key(預設搜尋的Key)  
-#### custom event
+**custom event**  
 ```@search```get search data(Array)  
-#### example
+**example**  
 ```
 <SearchByKey
     :searchText="searchText"
@@ -307,7 +281,7 @@ methods: {
 ```
 
 ### Pagination
-#### props
+**props**  
 ```
 {
     currentPage: Number,
@@ -318,9 +292,9 @@ methods: {
 currentPage: current page  
 pageSize: 一頁顯示幾個資料  
 
-#### custom event
+**custom event**  
 ```@change-page```get current page  
-#### example
+**example**  
 ```
 <Pagination 
     :currentPage="currentPage"
@@ -342,3 +316,16 @@ methods: {
 }
 ```
 ### DropdownSearch
+
+
+
+## change props value warn
+**利用深拷貝複製一份全新的即可(lodash: _.cloneDeep())**  
+```
+props: {currentPage: Number},
+data: function () {
+    return {
+        clonePage: _.cloneDeep(this.currentPage)
+    }
+}
+```
