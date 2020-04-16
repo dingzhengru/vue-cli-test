@@ -4,7 +4,7 @@
         <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
         <h1>Vue CLI Test</h1>
         <h2>Components</h2>
-        <Test name="Ding" age="25"></Test>
+        <Test name="Ding" :age="25"></Test>
         <h2>Data</h2>
         <p>{{ user }}</p>
         <h2>Methods</h2>
@@ -16,12 +16,8 @@
 // import HelloWorld from './components/HelloWorld.vue'
 import Test from './components/Test.vue'
 
-import $ from 'jquery'
+// import $ from 'jquery'
 
-
-
-
-console.log($)
 
 export default {
     name: 'app',
@@ -36,6 +32,12 @@ export default {
     },
     created: function() {
         this.products = this.getProducts();
+    },
+    async mounted() {
+        // 無法用變數去 動態import
+        // const TestComponent = './components/Test.vue'
+        // const test = await import(TestComponent)
+        // console.log(test)
     },
     methods: {
         getProducts: function() {
